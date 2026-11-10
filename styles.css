@@ -18,6 +18,14 @@ a { color: var(--blue); text-decoration: none; }
 a:hover { text-decoration: underline; }
 a:focus-visible, button:focus-visible { outline: 3px solid #6c9fc4; outline-offset: 3px; }
 
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+  ::view-transition-old(root) { animation: page-fade-out 160ms ease both; }
+  ::view-transition-new(root) { animation: page-fade-in 220ms ease both; }
+  @keyframes page-fade-out { to { opacity: 0; } }
+  @keyframes page-fade-in { from { opacity: 0; } }
+}
+
 .site-header { max-width: 1120px; margin: 0 auto; padding: 27px 32px 0; }
 .site-title { color: var(--text); font-size: 27px; font-weight: 700; line-height: 1.2; }
 .site-title:hover { text-decoration: none; }
